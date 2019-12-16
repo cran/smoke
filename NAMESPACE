@@ -1,0 +1,6 @@
+exportPattern("^[[:alpha:]]+")
+
+export(readTraces,scaLoad,doubleRef,estKinetics,fitKinetics)
+
+import(methods, graphics, grDevices, stats, utils)
+

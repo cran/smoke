@@ -1,0 +1,13 @@
+ca61ab559c3cbbab5507bda4d4d1efc9 *DESCRIPTION
+b1c0985b8cbef1943469143006cb0e2d *NAMESPACE
+30bae48b2939abd3e924e4a47006a912 *R/smoke.R
+eb187f7701e5079b94bdac63aeac67bd *build/partial.rdb
+e3926a57682e321d039f87dc1ba4c55a *data/data.raw.RData
+6ba8289e10155695a681400c236cc324 *data/datalist
+0bd630ca52c6161e623dcf32d1d2f6f8 *man/data.raw.Rd
+102b600b1e3261aa90f2b21fd400a6e7 *man/doubleRef.Rd
+9f060807ce3ff0a9dc3368974d0cc735 *man/estKinetics.Rd
+4573cd42c4540aa2ee0843a26ca1fb92 *man/fitKinetics.Rd
+ff8512f4748b1eb3b6df37ecb7d442a3 *man/readTraces.Rd
+7a9910a7029871f49f019058c22e976e *man/scaLoad.Rd
+3896ecc41f67b5a233c51b0a371efd61 *man/smoke-package.Rd

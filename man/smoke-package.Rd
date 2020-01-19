@@ -21,12 +21,19 @@ The DESCRIPTION file:
 
 Maintainer: \packageMaintainer{smoke}
 }
+\references{
+\insertRef{pza}{smoke}
+}
 \keyword{ package }
 \examples{
-\donttest{data.raw=readTraces("traces.csv")}
-\donttest{data.scaled=scaLoad(data.raw)}
-\donttest{data.doubleRefed=doubleRef(data.scaled)}
-\donttest{rate0=estKinetics(data.doubleRefed)}
-\donttest{kinetics=fitKinetics(data.doubleRefed)}
-\donttest{kinetics=fitKinetics(data.doubleRefed,plotResidual=TRUE)}
+\donttest{load("bli.RData")}
+\donttest{bli1 <- alignLoad(bli, 180, 780)}
+\donttest{bli2 <- doubleBlank(bli1)}
+\donttest{bli3 <- baseline(bli2, 1080, 1260)}
+\donttest{bli4 <- estimate(bli3)}
+\donttest{bli5 <- fitKinetics(bli4)}
+\donttest{plotTraces(bli2)}
+\donttest{plotKinetics(bli5)}
+\donttest{plotResiduals(bli5)}
 }
+

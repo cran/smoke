@@ -1,6 +1,31 @@
 exportPattern("^[[:alpha:]]+")
-
-export(readTraces,scaLoad,doubleRef,estKinetics,fitKinetics)
-
+exportMethods(
+    "alignLoad",
+    "baseline",
+    "doubleBlank",
+    "estimate",
+    "fitKinetics",
+    "initialize",
+    "kinetics",
+    "ligand",
+    "ligand<-",
+    "plotKinetics",
+    "plotResiduals",
+    "plotTraces",
+    "show",
+    "status",
+    "tExp",
+    "tExp<-",
+    "traces",
+    "traces<-",
+    "kOff0",
+    "kOff0<-",
+    "kOn0",
+    "kOn0<-" 
+)
+exportClasses(
+    "Bli" 
+)
 import(methods, graphics, grDevices, stats, utils)
+importFrom(Rdpack,reprompt)
 

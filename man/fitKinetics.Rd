@@ -1,65 +1,42 @@
 \name{fitKinetics}
 \alias{fitKinetics}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-non-linear regression of binding kinetics from BLI traces
+Fit binding kinetics
 }
 \description{
-fit the whole BLI dataset with one association-then-dissociation equation
+Fit the BLI traces with a single association-then-dissociation equation.
 }
 \usage{
-fitKinetics(data, tD0 = 600, kd0 = 0.08, ka0 = 0.013, lig = c(16/2^(0:6)), 
-plotResidual = FALSE)
+fitKinetics(obj)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{data}{
-the BLI traces with double-references corrected and aligned at start-time of association
-}
-  \item{tD0}{
-start-Time of dissociation step
-}
-  \item{kd0}{
-intial value of kOff, recommend to estimate with estKinetics function
-}
-  \item{ka0}{
-intial value of kOn, recommend to estimate with estKinetics function
-}
-  \item{lig}{
-concentrations of small-molecule analyte
-}
-  \item{plotResidual}{
-logical, default as FALSE to plot the sensorGram with fitting; 'TRUE' to plot the residuals from fitting
+  \item{obj}{
+  \code{obj} of "Bli" class
 }
 }
 \details{
-To overcome the low SNR in the small-molecule BLI exepriment, the whole dataset is fitted with a single equation to minimize the model variability. The inital kOn and kOff values are recommended to estimate with 'estKinetics' function.
+We fit the whole set of BLI traces with a single association-then-dissociation equation \insertCite{pza}{smoke}. The fitting model will be stored in the \code{kinetics} slot, and the \code{status} of "fitKinetics" will be set to "TRUE".
 }
 \value{
-dataframe with the kinetics parameters and std.error from the non-linear regression,including KD, rMax, kOff and kOn
+ S4 object of "Bli" class
+}
+\references{
+\insertRef{pza}{smoke}
 }
 \author{
-Qingan Sun, Xiaojun Li, James C Sacchettini
-}
-\note{
-The initial kOn and kOff can be estimated with estKinetics function
-}
+\packageAuthor{smoke}
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
+Maintainer: \packageMaintainer{smoke}
+}
 \seealso{
-\code{\link{estKinetics}}
+  \code{\link{kinetics}}, \code{\link{plotKinetics}}, \code{\link{plotResiduals}}
 }
 \examples{
-#data.raw=readTraces("traces.csv")
-\donttest{data.scaled=scaLoad(data.raw)}
-\donttest{data.doubleRefed=doubleRef(data.scaled)}
-\donttest{rate0=estKinetics(data.doubleRefed)}
-\donttest{kinetics=fitKinetics(data.doubleRefed)}
-\donttest{kinetics=fitKinetics(data.doubleRefed,plotResidual=TRUE)}
-
+\donttest{load("bli.RData")}
+\donttest{bli1 <- alignLoad(bli, 180, 780)}
+\donttest{bli2 <- doubleBlank(bli1)}
+\donttest{bli3 <- baseline(bli2, 1080, 1260)}
+\donttest{bli4 <- estimate(bli3)}
+\donttest{bli5 <- fitKinetics(bli4)}
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ models }% use one of  RShowDoc("KEYWORDS")
-\keyword{ dplot }% __ONLY ONE__ keyword per line
+\keyword{ manip } 
